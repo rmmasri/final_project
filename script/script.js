@@ -66,55 +66,61 @@ function draw(geo) {
 
 
 }
-function updateYear (newYearVal) {
-    // update the text slider
-    d3.select("#year")
-        .text(newYearVal.toLocaleString());
+/*
+ function updateYear (newYearVal) {
+ // update the text slider
+ d3.select("#year")
+ .text(newYearVal.toLocaleString());
 
-    // update the global var and the slider value
-    yearFilterVal = newYearVal;
-    d3.select("#yearSlider").property("value", newYearVal);
+ // update the global var and the slider value
+ yearFilterVal = newYearVal;
+ d3.select("#yearSlider").property("value", newYearVal);
 
-    // update all the circles
-    updateYear(yearFilterVal,
-        circlesDynamicallySized);
-}
+ // update all the circles
+ updateYear(yearFilterVal,
+ circlesDynamicallySized);
+ }
 
-//function drawCircles(sliderValue) {
-//    console.log(nonprofitData);
-//    svg.selectAll('circle')
-//        .data([nonprofitData, sliderValue]).enter()
-//        .append("circle")
-//        .attr("cx", function (d, i) {
-//            return (i + 1) * 25;
-//        })
-//        .attr("cy", 10)
-//        .attr("r", 10)
-//        .attr("transform", function () {
-//            return "translate(" + projection([d.long, d.lat]) + ")"
-//        });
-//    //        .filter(function (d) {
-////            if (d.year == sliderValue) {
-////                return d;
-////            }
-////        })
-////    if (nonprofitData["year"] == sliderValue) {return nonprofitData}
-//
-//    /*
-//     svg.selectAll(".circle")
-//     .attr("year", sliderValue)
-//     .data(data)
-//     .enter()
-//     .filter(function (d) {
-//     if (d.year == sliderValue) {
-//     .append("circle")
-//     .attr("transform", function () {
-//     return "translate(" + projection([d.long, d.lat]) + ")"
-//     })
-//     });
-//     };
-//     */
-//}
+ */
+/*
+ function drawCircles(sliderValue) {
+ console.log(nonprofitData);
+ svg.selectAll('circle')
+ .data([nonprofitData, sliderValue]).enter()
+ .append("circle")
+ .attr("cx", function (d, i) {
+ return (i + 1) * 25;
+ })
+ .attr("cy", 10)
+ .attr("r", 10)
+ .attr("transform", function () {
+ return "translate(" + projection([d.long, d.lat]) + ")"
+ });
+ //        .filter(function (d) {
+ //            if (d.year == sliderValue) {
+ //                return d;
+ //            }
+ //        })
+ //    if (nonprofitData["year"] == sliderValue) {return nonprofitData}
+
+ */
+/*
+ svg.selectAll(".circle")
+ .attr("year", sliderValue)
+ .data(data)
+ .enter()
+ .filter(function (d) {
+ if (d.year == sliderValue) {
+ .append("circle")
+ .attr("transform", function () {
+ return "translate(" + projection([d.long, d.lat]) + ")"
+ })
+ });
+ };
+ *//*
+
+ }
+ */
 
 function parseMetaData(d) {
     console.log("----------------------------------", d);
@@ -129,9 +135,20 @@ function parseMetaData(d) {
         revenue: d["REVENUE_AMT"],
         lat: d["LATS"],
         long: d["LONGS"]
-};
+    };
+    for (var i = 0; i <= newRow.length; i++) {
+        var nonprofits = [
+            {
+                name: name,
+                key: key,
+                coordinates: [lat, long],
+                year: year,
+                revenue: revenue
+            }
+        ]
+    }
 //console.log(newRow);
-return(newRow);
+    return(newRow);
 }
 
 function onClick(d) {
@@ -161,8 +178,3 @@ function zoomed() {
     svg.selectAll('.state')
         .style('stroke-width', 1 / d3.event.scale + 'px');
 }
-
-BootstrapDialog.show({
-    title: 'Say-hello dialog',
-    message: 'Hi Apple!'
-});
