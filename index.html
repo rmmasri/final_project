@@ -7,6 +7,8 @@
     <link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/normalize.min.css"/>
     <link rel="stylesheet" href="css/foundation.css"/>
+    <link rel="stylesheet" href="css/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/style-light.css"/>
     <link rel="stylesheet" href="css/d3.slider.css"/>
 
@@ -26,10 +28,8 @@
             <section class="top-bar-section">
                 <!-- Right Nav Section -->
                 <ul class="right">
-                    <li><a href="#" class="btn btn-lg btn-success"
-                           data-toggle="modal"
-                           data-target="#about">About</a></li>
                     <li><a href="//gapfinder.org">Research Journal</a></li>
+                    <li><button id="about" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">About</button></li>
                 </ul>
             </section>
         </nav>
@@ -42,27 +42,9 @@
     </div>
 </div>
 
+
+
 <div class="canvas">
-    <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">About</h4>
-                </div>
-                <div class="modal-body">
-                    <h3>Growing up in the suburbs of Detroit, Michigan, what was always pervasive was the stark contrast between the affluence and fully served status of the outskirts of the metro Detroit area when compared with the heartbreaking dinginess, general lack of adequate services and facilities, and the neglect of inner-city Detroit.
-                    </h3>
-                    <h3>Eight Mile Road is considered the boundary between rich and poor, between safety and crime, between manicured lawns and crumbling, littered streets. Crossing the boundary made apparent the discrepancy between the excellent schools, libraries, and general government services in the suburbs and the crowded, unequipped facilities south of the boundary.
-                    </h3>
-                    <h3>With Gapfinder, through the exploration of the data, what stands out are not the well-serviced areas, but those that are punctuated with many gaps. Trends can be seen in the shortage of particular services in areas of need or the propensity for certain regions to be neglected. It is the negative space that stands out in contrast throughout the visualization and during interaction.
-                    </h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="tooltip">
         <h2></h2>
@@ -108,11 +90,23 @@
     <!--.control-group-->
     <!--.controls-->
 </div>
+        <div id="modal" style='display:none; top: 20%;'>
+            <div class="modal-content">
+                <p>Growing up in the suburbs of Detroit, Michigan, what was always pervasive was the stark contrast between the affluence and fully served status of the outskirts of the metro Detroit area when compared with the heartbreaking dinginess, general lack of adequate services and facilities, and the neglect of inner-city Detroit.
+                </p>
+                <p>Eight Mile Road is considered the boundary between rich and poor, between safety and crime, between manicured lawns and crumbling, littered streets. Crossing the boundary made apparent the discrepancy between the excellent schools, libraries, and general government services in the suburbs and the crowded, unequipped facilities south of the boundary.
+                </p>
+                <p>With Gapfinder, through the exploration of the data, what stands out are not the well-serviced areas, but those that are punctuated with many gaps. Trends can be seen in the shortage of particular services in areas of need or the propensity for certain regions to be neglected. It is the negative space that stands out in contrast throughout the visualization and during interaction.
+                </p>
+            </div>
+        </div>
+    </div>
 
 <!--scripts-->
 <script src="bower_components\jquery\dist\jquery.min.js"></script>
+<script src="script/lib/jquery-ui.min.js"></script>
 <script src="bower_components\bootstrap\dist\js\bootstrap.min.js"></script>
-<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="script/lib/d3.v3.js"></script>
 <script src="script/lib/queue/queue.min.js"></script>
 <script src="script/d3.slider.js"></script>
 <script src="script/script.js"></script>
