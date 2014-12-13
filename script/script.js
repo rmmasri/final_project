@@ -130,6 +130,18 @@ function parseMetaData(d) {
         lat: d["LATS"],
         long: d["LONGS"]
     };
+    for (var i = 0; i <= newRow.length; i++) {
+        var nonprofits = [
+            {
+                name: name,
+                key: key,
+                coordinates: [lat, long],
+                year: year,
+                revenue: revenue
+            }
+        ]
+    }
+
 //console.log(newRow);
     for (var i = 0; i <= newRow.length; i++) {
         var nonprofits = [
